@@ -1,0 +1,18 @@
+2026-11-06 11:20:38,233 ERROR frappe New Exception collected in error log
+Site: frappe.localhost
+Form Dict: {'title': 'X', 'author': 'Y', 'published_year': 2999}
+2026-11-06 11:20:38,671 ERROR frappe New Exception collected in error log
+Site: frappe.localhost
+Form Dict: {}
+2026-11-15 07:20:40,771 ERROR frappe New Exception collected in error log
+Site: frappe.localhost
+Form Dict: {'fields': ['name'], 'limit': '2', 'limit_page_length': '2'}
+2026-11-15 07:20:41,079 ERROR frappe New Exception collected in error log
+Site: frappe.localhost
+Form Dict: {'fields': ['name'], 'limit': '2', 'limit_page_length': '2'}
+2026-11-15 07:21:24,661 ERROR frappe New Exception collected in error log
+Site: frappe.localhost
+Form Dict: {'limit_page_length': 20}
+2026-11-15 07:21:24,725 ERROR frappe New Exception collected in error log
+Site: frappe.localhost
+Form Dict: {'limit': '1', 'limit_page_length': '1'}

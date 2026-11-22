@@ -1,0 +1,24 @@
+2026-11-15 13:49:45,061 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 13:54:44,940 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 14:00:00,937 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 14:05:00,964 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 14:10:01,111 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 14:15:01,112 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 14:20:01,459 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'doctype': 'Doctoer', 'fields': '["`tabDoctoer`.`name`","`tabDoctoer`.`owner`","`tabDoctoer`.`creation`","`tabDoctoer`.`modified`","`tabDoctoer`.`modified_by`","`tabDoctoer`.`_user_tags`","`tabDoctoer`.`_assign`","`tabDoctoer`.`_liked_by`","`tabDoctoer`.`docstatus`","`tabDoctoer`.`idx`"]', 'filters': '[]', 'order_by': '`tabDoctoer`.`creation` desc', 'start': '0', 'page_length': '20', 'view': 'List', 'group_by': '', 'with_comment_count': '1', 'cmd': 'frappe.desk.reportview.get'}
+2026-11-15 14:21:34,087 ERROR frappe New Exception collected in error log
+Site: test_project.localhost
+Form Dict: {'name': 'test_project', 'cmd': 'frappe.desk.desk_page.getpage'}

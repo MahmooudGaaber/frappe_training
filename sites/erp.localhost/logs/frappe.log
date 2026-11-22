@@ -1,0 +1,3 @@
+2026-11-15 07:21:27,029 ERROR frappe New Exception collected in error log
+Site: erp.localhost
+Form Dict: {'limit_page_length': 20}

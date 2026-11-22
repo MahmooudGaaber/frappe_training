@@ -1,0 +1,255 @@
+2026-11-06 09:49:13,424 DEBUG cd frappe-bench && uv venv env --seed --python /opt/homebrew/opt/python@3.14/bin/python3.14
+2026-11-06 09:49:17,122 LOG Getting frappe
+2026-11-06 09:49:17,122 DEBUG cd frappe-bench/apps && git clone https://github.com/frappe/frappe.git --branch version-16 --depth 1 --origin upstream
+2026-11-06 09:49:32,936 LOG Installing frappe
+2026-11-06 09:49:32,990 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench && uv pip install --quiet -e /Users/mahmoudgaber/frappe/frappe-bench/apps/frappe  --python /Users/mahmoudgaber/frappe/frappe-bench/env/bin/python
+2026-11-06 09:51:35,183 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench/apps/frappe && yarn install --check-files
+2026-11-06 09:53:33,112 DEBUG cd frappe-bench && bench build
+2026-11-06 09:53:33,938 INFO /Users/mahmoudgaber/.local/bin/bench build
+2026-11-06 09:53:58,535 LOG setting up backups
+2026-11-06 09:54:19,911 LOG backups were set up
+2026-11-06 09:54:19,912 INFO Bench frappe-bench initialized
+2026-11-06 09:54:39,184 INFO /Users/mahmoudgaber/.local/bin/bench new-site frappe.localhost --db-root-username root --db-root-password 5cd3a81855ef441d69b162823bcb8c6a --admin-password ed33b547769f6afc92efe23a --mariadb-user-host-login-scope=localhost
+2026-11-06 09:55:20,493 INFO /Users/mahmoudgaber/.local/bin/bench use frappe.localhost
+2026-11-06 09:55:22,863 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost set-config developer_mode 1
+2026-11-06 09:55:25,274 INFO /Users/mahmoudgaber/.local/bin/bench version
+2026-11-06 09:55:28,261 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-06 09:55:30,982 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-06 09:55:30,985 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-06 09:55:30,985 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-06 09:55:30,989 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-06 09:55:31,012 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-06 09:55:49,726 INFO /Users/mahmoudgaber/.local/bin/bench version
+2026-11-06 11:01:27,754 INFO /Users/mahmoudgaber/.local/bin/bench new-app --help
+2026-11-06 11:01:29,199 INFO /Users/mahmoudgaber/.local/bin/bench get-app --help
+2026-11-06 11:01:39,629 INFO /Users/mahmoudgaber/.local/bin/bench new-app library_app
+2026-11-06 11:01:39,639 LOG creating new app library_app
+2026-11-06 11:01:43,927 LOG Installing library_app
+2026-11-06 11:01:43,932 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench && uv pip install --quiet -e /Users/mahmoudgaber/frappe/frappe-bench/apps/library_app  --python /Users/mahmoudgaber/frappe/frappe-bench/env/bin/python
+2026-11-06 11:01:46,520 DEBUG bench build --app library_app
+2026-11-06 11:01:47,265 INFO /Users/mahmoudgaber/.local/bin/bench build --app library_app
+2026-11-06 11:02:11,333 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost install-app library_app
+2026-11-06 11:02:16,498 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost migrate
+2026-11-06 11:02:23,851 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost clear-cache
+2026-11-06 11:02:26,991 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost list-apps
+2026-11-06 11:20:13,195 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-06 11:20:15,733 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-06 11:20:15,738 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-06 11:20:15,738 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-06 11:20:15,756 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-06 11:20:15,758 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-06 12:00:01,995 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-07 00:00:01,304 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-07 06:00:00,805 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-07 12:00:01,194 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-07 18:00:01,196 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-08 12:00:01,123 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-09 12:00:01,440 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-09 18:00:01,169 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-10 00:00:01,293 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-10 12:00:02,172 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-10 18:00:01,037 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-11 06:00:01,420 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-11 12:00:01,301 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-11 18:00:01,012 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-12 09:43:05,678 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost execute frappe.db.sql --args ["select count(*) from tabUser"]
+2026-11-12 12:00:01,498 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-13 12:00:01,119 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-14 12:00:01,499 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-14 18:00:01,470 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-15 07:11:12,919 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 07:11:13,601 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 07:11:13,601 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 07:11:13,609 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-15 07:11:13,609 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 07:11:13,615 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 07:15:33,159 INFO /Users/mahmoudgaber/.local/bin/bench get-app erpnext --branch version-16
+2026-11-15 07:15:35,117 LOG Getting erpnext
+2026-11-15 07:15:35,118 DEBUG cd ./apps && git clone https://github.com/frappe/erpnext.git --branch version-16 --depth 1 --origin upstream
+2026-11-15 07:15:58,887 LOG Installing erpnext
+2026-11-15 07:15:58,889 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench && uv pip install --quiet -e /Users/mahmoudgaber/frappe/frappe-bench/apps/erpnext  --python /Users/mahmoudgaber/frappe/frappe-bench/env/bin/python
+2026-11-15 07:16:18,078 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench/apps/erpnext && yarn install --check-files
+2026-11-15 07:18:09,643 DEBUG bench build --app erpnext
+2026-11-15 07:18:09,881 INFO /Users/mahmoudgaber/.local/bin/bench build --app erpnext
+2026-11-15 07:18:35,695 INFO /Users/mahmoudgaber/.local/bin/bench new-site erp.localhost --db-root-username root --db-root-password Besy --admin-password ed33b547769f6afc92efe23a --mariadb-user-host-login-scope=localhost --install-app erpnext
+2026-11-15 07:20:30,653 INFO /Users/mahmoudgaber/.local/bin/bench --site erp.localhost list-apps
+2026-11-15 07:20:31,437 INFO /Users/mahmoudgaber/.local/bin/bench --site erp.localhost set-config developer_mode 1
+2026-11-15 07:20:31,969 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost list-apps
+2026-11-15 07:21:17,985 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 07:21:18,443 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-15 07:21:18,446 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 07:21:18,448 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 07:21:18,456 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 07:21:18,460 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 10:04:50,736 INFO /Users/mahmoudgaber/.local/bin/bench new-site test_project
+2026-11-15 10:05:18,660 INFO /Users/mahmoudgaber/.local/bin/bench new-app test_project
+2026-11-15 10:05:18,667 LOG creating new app test_project
+2026-11-15 10:06:21,351 LOG Installing test_project
+2026-11-15 10:06:21,355 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench && uv pip install --quiet -e /Users/mahmoudgaber/frappe/frappe-bench/apps/test_project  --python /Users/mahmoudgaber/frappe/frappe-bench/env/bin/python
+2026-11-15 10:06:22,331 DEBUG bench build --app test_project
+2026-11-15 10:06:22,527 INFO /Users/mahmoudgaber/.local/bin/bench build --app test_project
+2026-11-15 10:06:23,156 WARNING bench build --app test_project executed with exit code 1
+2026-11-15 10:06:23,156 WARNING /Users/mahmoudgaber/.local/bin/bench new-app test_project executed with exit code 1
+2026-11-15 10:06:57,432 INFO /Users/mahmoudgaber/.local/bin/bench install-app test_project
+2026-11-15 10:07:20,935 INFO /Users/mahmoudgaber/.local/bin/bench install-app test_project
+2026-11-15 10:13:45,400 INFO /Users/mahmoudgaber/.local/bin/bench build --app test_project
+2026-11-15 10:13:53,203 INFO /Users/mahmoudgaber/.local/bin/bench build --app test_project
+2026-11-15 10:14:16,074 INFO /Users/mahmoudgaber/.local/bin/bench new-site test_project.localhost --mariadb-user-host-login-scope=localhost
+2026-11-15 10:15:40,873 INFO /Users/mahmoudgaber/.local/bin/bench new-site test_project.localhost --mariadb-user-host-login-scope=localhost
+2026-11-15 10:17:01,223 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project.localhost install-app test_project
+2026-11-15 10:17:17,358 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 10:17:17,834 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-15 10:17:17,837 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 10:17:17,841 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 10:17:17,847 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 10:17:17,851 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 11:20:56,119 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project mariadb
+2026-11-15 12:00:01,470 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-15 12:37:50,501 INFO /Users/mahmoudgaber/.local/bin/bench set-config -g developer_mode true
+2026-11-15 12:37:52,749 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 12:57:19,736 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project console
+2026-11-15 12:57:40,008 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project console
+2026-11-15 12:58:22,928 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project.localhost console
+2026-11-15 13:02:44,145 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project.localhost set-config developer_mode 1
+2026-11-15 13:02:44,873 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project.localhost clear-cache
+2026-11-15 13:04:59,723 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 13:05:09,023 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 13:06:59,496 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 13:06:59,941 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 13:06:59,946 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-15 13:06:59,948 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 13:06:59,949 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 13:06:59,951 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 13:06:59,959 WARNING /Users/mahmoudgaber/.local/bin/bench socketio executed with exit code 1
+2026-11-15 13:07:24,414 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 13:07:24,858 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 13:07:24,859 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-15 13:07:24,861 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 13:07:24,865 WARNING /Users/mahmoudgaber/.local/bin/bench socketio executed with exit code 1
+2026-11-15 13:07:24,866 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 13:07:24,879 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 13:19:05,036 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 13:19:05,504 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 13:19:05,505 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 13:19:05,508 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 13:19:05,508 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 13:19:05,508 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-15 13:26:00,071 INFO /Users/mahmoudgaber/.local/bin/bench --site erp.localhost set-admin-password Besy
+2026-11-15 13:26:14,152 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-15 13:26:14,775 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-15 13:26:14,789 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-15 13:26:14,792 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-15 13:26:14,793 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-15 13:26:14,794 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 10:21:41,473 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 10:21:42,042 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 10:21:42,042 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 10:21:42,043 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 10:21:42,043 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 10:21:42,044 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 10:41:46,054 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 10:41:46,568 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 10:41:46,569 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 10:41:46,579 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 10:41:46,581 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 10:41:46,591 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 10:54:10,152 INFO /Users/mahmoudgaber/.local/bin/bench --version
+2026-11-16 12:00:01,226 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-16 12:26:47,179 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 12:26:47,771 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 12:26:47,771 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 12:26:47,771 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 12:26:47,775 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 12:26:47,780 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 12:29:21,101 INFO /Users/mahmoudgaber/.local/bin/bench new-app library_management
+2026-11-16 12:29:21,108 LOG creating new app library_management
+2026-11-16 12:44:50,797 LOG Installing library_management
+2026-11-16 12:44:50,814 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench && uv pip install --quiet -e /Users/mahmoudgaber/frappe/frappe-bench/apps/library_management  --python /Users/mahmoudgaber/frappe/frappe-bench/env/bin/python
+2026-11-16 12:44:52,802 DEBUG bench build --app library_management
+2026-11-16 12:44:53,077 INFO /Users/mahmoudgaber/.local/bin/bench build --app library_management
+2026-11-16 12:47:25,609 INFO /Users/mahmoudgaber/.local/bin/bench new-site library.test
+2026-11-16 12:47:45,747 INFO /Users/mahmoudgaber/.local/bin/bench new-site library.test
+2026-11-16 12:48:19,178 INFO /Users/mahmoudgaber/.local/bin/bench new-site library.test
+2026-11-16 12:55:15,683 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 12:55:16,361 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 12:55:16,365 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 12:55:16,372 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 12:55:16,376 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 12:55:16,394 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 13:01:15,282 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 13:01:15,808 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 13:01:15,810 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 13:01:15,811 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 13:01:15,814 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 13:01:15,818 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 13:03:31,107 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test install-app library_app
+2026-11-16 13:04:13,497 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 13:04:14,064 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 13:04:14,065 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 13:04:14,069 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 13:04:14,070 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 13:04:14,071 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 13:07:47,340 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost list-apps
+2026-11-16 13:07:48,332 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test list-apps
+2026-11-16 13:09:07,937 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test install-app library_management
+2026-11-16 13:09:12,751 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test add-to-hosts
+2026-11-16 13:10:06,452 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test install-app library_management
+2026-11-16 13:10:22,105 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 13:10:22,581 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 13:10:22,585 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 13:10:22,586 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 13:10:22,590 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 13:10:22,593 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 13:36:01,702 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test backup
+2026-11-16 13:36:14,580 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test install-app erpnext
+2026-11-16 13:38:22,074 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test list-apps
+2026-11-16 13:38:58,635 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-16 13:38:59,222 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-16 13:38:59,223 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-16 13:38:59,223 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-16 13:38:59,226 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-16 13:38:59,233 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-16 13:39:51,383 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test install-app erpnext
+2026-11-16 13:40:04,994 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test migrate
+2026-11-16 13:40:14,718 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test clear-cache
+2026-11-16 14:02:12,925 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test mariadb
+2026-11-16 14:03:31,884 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test set-config --global developer_mode 1
+2026-11-16 14:06:40,543 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test execute frappe.conf.get --args ['developer_mode']
+2026-11-16 14:07:27,066 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test execute frappe.conf.get --args ['developer_mode']
+2026-11-16 15:25:34,575 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test mariadb
+2026-11-16 15:36:40,589 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test mariadb
+2026-11-16 16:20:15,369 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test migrate
+2026-11-16 16:20:23,873 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test clear-cache
+2026-11-17 09:25:12,015 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-17 09:25:12,621 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-17 09:25:12,625 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-17 09:25:12,626 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-17 09:25:12,631 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-17 09:25:12,650 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-17 11:45:40,637 INFO /Users/mahmoudgaber/.local/bin/bench set-config -g server_script_enabled true
+2026-11-17 11:45:59,344 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-17 11:45:59,898 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-17 11:45:59,907 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-17 11:45:59,914 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-17 11:45:59,914 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-17 11:45:59,915 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-17 12:00:00,821 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-18 12:00:01,759 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-18 12:16:47,489 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-18 12:16:48,049 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-18 12:16:48,051 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-18 12:16:48,054 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-18 12:16:48,054 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-18 12:16:48,056 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-19 12:00:01,764 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-19 12:20:38,716 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-19 12:20:39,453 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-19 12:20:39,454 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-19 12:20:39,457 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-19 12:20:39,480 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-19 12:20:39,481 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-19 14:17:09,839 INFO /Users/mahmoudgaber/.local/bin/bench mariadb
+2026-11-19 14:17:52,172 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test mariadb
+2026-11-20 00:00:01,767 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-21 00:05:14,045 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-22 00:00:01,876 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup

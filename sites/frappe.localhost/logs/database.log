@@ -1,0 +1,244 @@
+2026-11-06 09:55:13,845 WARNING database DDL Query made to DB:
+create table `tabAutomation Event Subscription` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`event_name` varchar(140),
+`correlation_key` varchar(140),
+`status` varchar(140) DEFAULT 'Waiting',
+`expires_at` datetime(6),
+`run` varchar(140),
+`step_key` varchar(140),
+`resume_queue` varchar(140),
+`event_payload` json,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `event_name`(`event_name`),
+index `correlation_key`(`correlation_key`),
+index `status`(`status`),
+index `expires_at`(`expires_at`),
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-06 09:55:13,908 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Event Subscription`
+				ADD INDEX IF NOT EXISTS `event_correlation_status`(event_name, correlation_key, status)
+2026-11-06 09:55:13,948 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Event Subscription`
+				ADD INDEX IF NOT EXISTS `event_expiry_status`(status, expires_at)
+2026-11-06 09:55:14,054 WARNING database DDL Query made to DB:
+create table `tabAuto Repeat` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`reference_doctype` varchar(140),
+`reference_document` varchar(140),
+`submit_on_creation` tinyint(4) NOT NULL DEFAULT 0,
+`start_date` date,
+`end_date` date,
+`disabled` tinyint(4) NOT NULL DEFAULT 0,
+`frequency` varchar(140),
+`repeat_on_day` int(11) NOT NULL DEFAULT 0,
+`repeat_on_last_day` tinyint(4) NOT NULL DEFAULT 0,
+`next_schedule_date` date,
+`generate_separate_documents_for_each_assignee` tinyint(4) NOT NULL DEFAULT 0,
+`notify_by_email` tinyint(4) NOT NULL DEFAULT 0,
+`recipients` text,
+`template` varchar(140),
+`subject` varchar(140),
+`message` text DEFAULT 'Please find attached {{ doc.doctype }} #{{ doc.name }}',
+`print_format` varchar(140),
+`status` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `next_schedule_date`(`next_schedule_date`),
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-06 09:55:14,149 WARNING database DDL Query made to DB:
+create table `tabAutomation Run` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`automation` varchar(140),
+`automation_title` varchar(140),
+`status` varchar(140),
+`reference_doctype` varchar(140),
+`reference_name` varchar(140),
+`user` varchar(140),
+`depth` int(11) NOT NULL DEFAULT 0,
+`queue_row` varchar(140),
+`started_at` datetime(6),
+`ended_at` datetime(6),
+`error_summary` text,
+`actions_snapshot` json,
+`relationships` json,
+`run_state` json,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-06 09:55:14,208 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Run`
+				ADD INDEX IF NOT EXISTS `automation_creation_index`(automation, creation)
+2026-11-06 09:55:14,243 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Run`
+				ADD INDEX IF NOT EXISTS `reference_doctype_reference_name_index`(reference_doctype, reference_name)
+2026-11-06 09:55:14,319 WARNING database DDL Query made to DB:
+create table `tabAutomation Flow` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`title` varchar(140),
+`document_type` varchar(140),
+`enabled` tinyint(4) NOT NULL DEFAULT 0,
+`disabled_reason` text,
+`trigger_type` varchar(140),
+`trigger_field` varchar(140),
+`from_value` varchar(140),
+`to_value` varchar(140),
+`custom_event` varchar(140),
+`date_field` varchar(140),
+`date_offset` int(11) NOT NULL DEFAULT 0,
+`date_direction` varchar(140),
+`cron_expression` varchar(140),
+`next_run` datetime(6),
+`filters` longtext,
+`condition` longtext,
+`relationships` json,
+`revalidate_on_run` tinyint(4) NOT NULL DEFAULT 0,
+`run_as` varchar(140) DEFAULT 'Automation User',
+`automation_user` varchar(140) DEFAULT 'Administrator',
+`stop_on_error` tinyint(4) NOT NULL DEFAULT 1,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `next_run`(`next_run`),
+index creation(creation),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-06 09:55:14,417 WARNING database DDL Query made to DB:
+create table `tabAutomation Trigger Queue` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`automation` varchar(140),
+`ref_doctype` varchar(140),
+`ref_name` varchar(140),
+`status` varchar(140) DEFAULT 'Pending',
+`triggered_at` datetime(6),
+`run_after` datetime(6),
+`attempt` int(11) NOT NULL DEFAULT 0,
+`depth` int(11) NOT NULL DEFAULT 0,
+`triggered_by` varchar(140),
+`event_payload` json,
+`resume_run` varchar(140),
+`resume_from_idx` int(11) NOT NULL DEFAULT 0,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index `automation`(`automation`),
+index `ref_doctype`(`ref_doctype`),
+index `status`(`status`),
+index `run_after`(`run_after`),
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-06 09:55:14,489 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Trigger Queue`
+		ADD COLUMN `dedup_key` VARCHAR(420)
+		AS (
+			CASE WHEN `status` IN ('Pending', 'Scheduled') AND `resume_run` IS NULL
+			THEN CONCAT_WS(':', `automation`, `ref_doctype`, `ref_name`) END
+		) VIRTUAL
+2026-11-06 09:55:14,527 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Trigger Queue` ADD UNIQUE INDEX `unique_dedup_key` (`dedup_key`)
+2026-11-06 09:55:14,569 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Trigger Queue`
+				ADD INDEX IF NOT EXISTS `drain_scan`(status, run_after, triggered_at)
+2026-11-06 09:55:14,610 WARNING database DDL Query made to DB:
+ALTER TABLE `tabAutomation Trigger Queue`
+				ADD INDEX IF NOT EXISTS `pending_lookup`(automation, ref_doctype, ref_name)
+2026-11-06 09:55:14,659 WARNING database DDL Query made to DB:
+create table `tabAuto Repeat User` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`user` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-06 11:02:14,519 WARNING database DDL Query made to DB:
+create table `tabBook` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`title` varchar(140),
+`author` varchar(140),
+`isbn` varchar(140) UNIQUE,
+`status` varchar(140) DEFAULT 'Available',
+`published_year` int(11) NOT NULL DEFAULT 0,
+`description` text,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci

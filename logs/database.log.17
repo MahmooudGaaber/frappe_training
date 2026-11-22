@@ -1,4 +1,274 @@
-2026-11-06 09:54:58,721 WARNING database DDL Query made to DB:
+2026-11-15 07:18:47,913 WARNING database DDL Query made to DB:
+create table `tabCommunication` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`subject` text,
+`communication_medium` varchar(140),
+`sender` varchar(255),
+`recipients` longtext,
+`cc` longtext,
+`bcc` longtext,
+`phone_no` varchar(140),
+`delivery_status` varchar(140),
+`content` longtext,
+`text_content` longtext,
+`communication_type` varchar(140) DEFAULT 'Communication',
+`status` varchar(140),
+`sent_or_received` varchar(140),
+`communication_date` datetime(6),
+`read_receipt` tinyint(4) NOT NULL DEFAULT 0,
+`send_after` datetime(6),
+`sender_full_name` varchar(140),
+`read_by_recipient` tinyint(4) NOT NULL DEFAULT 0,
+`read_by_recipient_on` datetime(6),
+`reference_doctype` varchar(140),
+`reference_name` varchar(140),
+`reference_owner` varchar(140),
+`email_account` varchar(140),
+`in_reply_to` varchar(140),
+`user` varchar(140),
+`email_template` varchar(140),
+`unread_notification_sent` tinyint(4) NOT NULL DEFAULT 0,
+`seen` tinyint(4) NOT NULL DEFAULT 0,
+`_user_tags` text,
+`message_id` text,
+`uid` int(11) NOT NULL DEFAULT 0,
+`imap_folder` varchar(140),
+`email_status` varchar(140),
+`has_attachment` tinyint(4) NOT NULL DEFAULT 0,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+`_seen` text,
+index `reference_owner`(`reference_owner`),
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=COMPRESSED
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,128 WARNING database DDL Query made to DB:
+ALTER TABLE `tabCommunication`
+				ADD INDEX IF NOT EXISTS `status_communication_type_index`(status, communication_type)
+2026-11-15 07:18:48,169 WARNING database DDL Query made to DB:
+ALTER TABLE `tabCommunication`
+				ADD INDEX IF NOT EXISTS `message_id_index`(message_id(140))
+2026-11-15 07:18:48,209 WARNING database DDL Query made to DB:
+ALTER TABLE `tabCommunication`
+				ADD INDEX IF NOT EXISTS `comm_ref_type_date_idx`(reference_doctype, reference_name, communication_date, communication_type)
+2026-11-15 07:18:48,263 WARNING database DDL Query made to DB:
+create table `tabPackage Import` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`attach_package` text,
+`activate` tinyint(4) NOT NULL DEFAULT 0,
+`force` tinyint(4) NOT NULL DEFAULT 0,
+`log` longtext,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,386 WARNING database DDL Query made to DB:
+create table `tabUser Workspaces` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`workspace` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,557 WARNING database DDL Query made to DB:
+create table `tabSMS Parameter` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`parameter` varchar(140),
+`value` varchar(255),
+`header` tinyint(4) NOT NULL DEFAULT 0,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,620 WARNING database DDL Query made to DB:
+create table `tabLogs To Clear` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`ref_doctype` varchar(140),
+`days` int(11) NOT NULL DEFAULT 30,
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,677 WARNING database DDL Query made to DB:
+create table `tabPermission Log` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`changed_by` varchar(140),
+`status` varchar(140),
+`for_doctype` varchar(140),
+`for_document` varchar(140),
+`reference_type` varchar(140),
+`reference` varchar(140),
+`changes` text,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation),
+index modified(modified))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,773 WARNING database DDL Query made to DB:
+create table `tabSession Default` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`ref_doctype` varchar(140),
+parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,827 WARNING database DDL Query made to DB:
+create table `tabDomain` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`domain` varchar(140) UNIQUE,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:48,906 WARNING database DDL Query made to DB:
+create table `tabScheduled Job Log` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`status` varchar(140),
+`scheduled_job_type` varchar(140),
+`details` longtext,
+`debug_log` longtext,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:49,003 WARNING database DDL Query made to DB:
+create table `tabUser Type` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`is_standard` tinyint(4) NOT NULL DEFAULT 0,
+`role` varchar(140),
+`apply_user_permission_on` varchar(140),
+`user_id_field` varchar(140),
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:49,171 WARNING database DDL Query made to DB:
+create table `tabPackage` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`package_name` varchar(140),
+`readme` longtext,
+`license_type` varchar(140),
+`license` longtext,
+`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-15 07:18:49,318 WARNING database DDL Query made to DB:
 create table `tabAmended Document Naming Settings` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -17,7 +287,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:58,787 WARNING database DDL Query made to DB:
+2026-11-15 07:18:49,379 WARNING database DDL Query made to DB:
 create table `tabRole Profile` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -36,7 +306,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:58,992 WARNING database DDL Query made to DB:
+2026-11-15 07:18:49,719 WARNING database DDL Query made to DB:
 create table `tabPersonal Data Deletion Request` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -57,7 +327,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,176 WARNING database DDL Query made to DB:
+2026-11-15 07:18:49,848 WARNING database DDL Query made to DB:
 create table `tabWebsite Sidebar Item` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -77,7 +347,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,268 WARNING database DDL Query made to DB:
+2026-11-15 07:18:49,941 WARNING database DDL Query made to DB:
 create table `tabPersonal Data Download Request` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -98,7 +368,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,328 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,007 WARNING database DDL Query made to DB:
 create table `tabWebsite Theme Ignore App` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -116,7 +386,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,397 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,078 WARNING database DDL Query made to DB:
 create table `tabUTM Source` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -137,7 +407,7 @@ index modified(modified))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,516 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,202 WARNING database DDL Query made to DB:
 create table `tabWeb Page Block` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -167,7 +437,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,586 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,339 WARNING database DDL Query made to DB:
 create table `tabWebsite Route Redirect` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -188,7 +458,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,648 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,452 WARNING database DDL Query made to DB:
 create table `tabUTM Medium` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -209,9 +479,9 @@ index modified(modified))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,727 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,523 WARNING database DDL Query made to DB:
 create sequence if not exists web_form_list_column_id_seq nocache nocycle
-2026-11-06 09:54:59,748 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,545 WARNING database DDL Query made to DB:
 create table `tabWeb Form List Column` (
 			name bigint primary key,
 			creation datetime(6),
@@ -232,7 +502,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,842 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,637 WARNING database DDL Query made to DB:
 create table `tabWeb Form Request` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -257,7 +527,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:54:59,903 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,703 WARNING database DDL Query made to DB:
 create table `tabWebsite Route Meta` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -275,7 +545,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,014 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,803 WARNING database DDL Query made to DB:
 create table `tabHelp Article` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -303,7 +573,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,076 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,857 WARNING database DDL Query made to DB:
 create table `tabColor` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -322,7 +592,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,134 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,914 WARNING database DDL Query made to DB:
 create table `tabPersonal Data Deletion Step` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -344,7 +614,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,200 WARNING database DDL Query made to DB:
+2026-11-15 07:18:50,971 WARNING database DDL Query made to DB:
 create table `tabSocial Link Settings` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -364,7 +634,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,264 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,047 WARNING database DDL Query made to DB:
 create table `tabWebsite Slideshow` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -384,7 +654,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,334 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,145 WARNING database DDL Query made to DB:
 create table `tabTop Bar Item` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -406,7 +676,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,394 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,197 WARNING database DDL Query made to DB:
 create table `tabDiscussion Reply` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -426,7 +696,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,476 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,262 WARNING database DDL Query made to DB:
 create table `tabHelp Category` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -449,7 +719,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,546 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,339 WARNING database DDL Query made to DB:
 create table `tabCompany History` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -468,7 +738,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,666 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,460 WARNING database DDL Query made to DB:
 create table `tabWebsite Slideshow Item` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -489,7 +759,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,780 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,588 WARNING database DDL Query made to DB:
 create table `tabWeb Template Field` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -512,7 +782,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,847 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,650 WARNING database DDL Query made to DB:
 create table `tabDiscussion Topic` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -533,7 +803,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:00,962 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,773 WARNING database DDL Query made to DB:
 create table `tabAbout Us Team Member` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -553,7 +823,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:01,027 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,837 WARNING database DDL Query made to DB:
 create table `tabUTM Campaign` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -573,7 +843,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:01,113 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,910 WARNING database DDL Query made to DB:
 create table `tabWeb Page View` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -605,7 +875,7 @@ index creation(creation))
 			ROW_FORMAT=COMPRESSED
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:01,185 WARNING database DDL Query made to DB:
+2026-11-15 07:18:51,965 WARNING database DDL Query made to DB:
 create table `tabWebsite Meta Tag` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -624,7 +894,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:01,337 WARNING database DDL Query made to DB:
+2026-11-15 07:18:52,149 WARNING database DDL Query made to DB:
 create table `tabWebsite Sidebar` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -643,7 +913,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:01,759 WARNING database DDL Query made to DB:
+2026-11-15 07:18:52,599 WARNING database DDL Query made to DB:
 create table `tabWorkflow Transition Task` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -664,7 +934,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,135 WARNING database DDL Query made to DB:
+2026-11-15 07:18:52,783 WARNING database DDL Query made to DB:
 create table `tabWorkflow State` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -685,7 +955,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,219 WARNING database DDL Query made to DB:
+2026-11-15 07:18:52,846 WARNING database DDL Query made to DB:
 create table `tabWorkflow Action Master` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -704,7 +974,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,305 WARNING database DDL Query made to DB:
+2026-11-15 07:18:52,937 WARNING database DDL Query made to DB:
 create table `tabWorkflow Transition` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -730,7 +1000,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,381 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,001 WARNING database DDL Query made to DB:
 create table `tabWorkflow` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -756,7 +1026,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,461 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,078 WARNING database DDL Query made to DB:
 create table `tabWorkflow Document State` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -785,7 +1055,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,515 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,133 WARNING database DDL Query made to DB:
 create table `tabWorkflow Action Permitted Role` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -803,7 +1073,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,605 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,280 WARNING database DDL Query made to DB:
 create table `tabWorkflow Action` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -829,10 +1099,10 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,668 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,340 WARNING database DDL Query made to DB:
 ALTER TABLE `tabWorkflow Action`
 				ADD INDEX IF NOT EXISTS `reference_name_reference_doctype_status_index`(reference_name, reference_doctype, status)
-2026-11-06 09:55:02,717 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,382 WARNING database DDL Query made to DB:
 create table `tabWorkflow Transition Tasks` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -850,7 +1120,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:02,871 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,564 WARNING database DDL Query made to DB:
 create table `tabEmail Group Member` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -873,10 +1143,10 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,012 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,690 WARNING database DDL Query made to DB:
 alter table `tabEmail Group Member`
 					add unique `unique_email_group_email`(email_group, email)
-2026-11-06 09:55:03,151 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,861 WARNING database DDL Query made to DB:
 create table `tabEmail Queue` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -916,13 +1186,13 @@ index creation(creation))
 			ROW_FORMAT=COMPRESSED
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,218 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,921 WARNING database DDL Query made to DB:
 ALTER TABLE `tabEmail Queue`
 				ADD INDEX IF NOT EXISTS `index_bulk_flush`(status, send_after, priority, creation)
-2026-11-06 09:55:03,263 WARNING database DDL Query made to DB:
+2026-11-15 07:18:53,956 WARNING database DDL Query made to DB:
 ALTER TABLE `tabEmail Queue`
 				ADD INDEX IF NOT EXISTS `message_id_index`(message_id(140))
-2026-11-06 09:55:03,316 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,011 WARNING database DDL Query made to DB:
 create table `tabUnhandled Email` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -945,7 +1215,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,409 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,098 WARNING database DDL Query made to DB:
 create table `tabDocument Follow` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -969,7 +1239,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,483 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,149 WARNING database DDL Query made to DB:
 create table `tabEmail Unsubscribe` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -992,7 +1262,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,546 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,203 WARNING database DDL Query made to DB:
 create table `tabReply To Address` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1011,7 +1281,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,640 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,280 WARNING database DDL Query made to DB:
 create table `tabEmail Domain` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1044,7 +1314,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,708 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,345 WARNING database DDL Query made to DB:
 create table `tabNotification Recipient` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1066,7 +1336,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,774 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,415 WARNING database DDL Query made to DB:
 create table `tabEmail Rule` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1086,7 +1356,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,886 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,531 WARNING database DDL Query made to DB:
 create table `tabAuto Email Report` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1124,7 +1394,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:03,973 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,604 WARNING database DDL Query made to DB:
 create table `tabIMAP Folder` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1145,7 +1415,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,120 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,764 WARNING database DDL Query made to DB:
 create table `tabEmail Account` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1224,10 +1494,10 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,178 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,828 WARNING database DDL Query made to DB:
 alter table `tabEmail Account`
 					add unique `unique_email_account_type`(email_id, enable_incoming, enable_outgoing)
-2026-11-06 09:55:04,231 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,887 WARNING database DDL Query made to DB:
 create table `tabEmail Queue Recipient` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1248,10 +1518,10 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,289 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,941 WARNING database DDL Query made to DB:
 ALTER TABLE `tabEmail Queue Recipient`
 				ADD INDEX IF NOT EXISTS `modified_index`(modified)
-2026-11-06 09:55:04,350 WARNING database DDL Query made to DB:
+2026-11-15 07:18:54,999 WARNING database DDL Query made to DB:
 create table `tabEmail Group` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1275,7 +1545,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,426 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,088 WARNING database DDL Query made to DB:
 create table `tabEmail Flag Queue` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1298,7 +1568,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,498 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,152 WARNING database DDL Query made to DB:
 create table `tabEmail Template` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1321,7 +1591,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,634 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,255 WARNING database DDL Query made to DB:
 create table `tabDocType Layout Field` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1340,7 +1610,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:04,907 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,484 WARNING database DDL Query made to DB:
 create table `tabDocType Layout` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1361,7 +1631,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,042 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,609 WARNING database DDL Query made to DB:
 create table `tabCustomize Form Field` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1437,7 +1707,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,152 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,725 WARNING database DDL Query made to DB:
 create table `tabCurrency` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1463,7 +1733,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,383 WARNING database DDL Query made to DB:
+2026-11-15 07:18:55,945 WARNING database DDL Query made to DB:
 create table `tabCountry` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1486,7 +1756,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,511 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,077 WARNING database DDL Query made to DB:
 create table `tabCustom Sidebar` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1508,7 +1778,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,707 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,289 WARNING database DDL Query made to DB:
 create table `tabNote` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1533,7 +1803,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,768 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,340 WARNING database DDL Query made to DB:
 create table `tabList View Settings` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1560,7 +1830,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,826 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,390 WARNING database DDL Query made to DB:
 create table `tabDashboard Chart Field` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1579,7 +1849,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:05,898 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,459 WARNING database DDL Query made to DB:
 create table `tabNote Seen By` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1597,7 +1867,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,094 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,650 WARNING database DDL Query made to DB:
 create table `tabNumber Card Link` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1615,7 +1885,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,160 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,714 WARNING database DDL Query made to DB:
 create table `tabEvent Participants` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1636,7 +1906,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,233 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,776 WARNING database DDL Query made to DB:
 create table `tabDock Item` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1660,7 +1930,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,429 WARNING database DDL Query made to DB:
+2026-11-15 07:18:56,983 WARNING database DDL Query made to DB:
 create table `tabSidebar Item Group` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1680,7 +1950,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,487 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,044 WARNING database DDL Query made to DB:
 create table `tabKanban Board Field` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1700,7 +1970,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,552 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,108 WARNING database DDL Query made to DB:
 create table `tabKanban Board Column` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1721,7 +1991,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,611 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,172 WARNING database DDL Query made to DB:
 create table `tabDashboard Settings` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1741,7 +2011,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,675 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,236 WARNING database DDL Query made to DB:
 create table `tabKanban Board Group Field` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1760,7 +2030,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,729 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,285 WARNING database DDL Query made to DB:
 create table `tabNotification Subscribed Document` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1778,7 +2048,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,818 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,346 WARNING database DDL Query made to DB:
 create table `tabDashboard Chart Link` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1797,7 +2067,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:06,944 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,406 WARNING database DDL Query made to DB:
 create table `tabCustom HTML Block` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1819,7 +2089,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,034 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,480 WARNING database DDL Query made to DB:
 create table `tabToDo` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1851,10 +2121,10 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,086 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,534 WARNING database DDL Query made to DB:
 ALTER TABLE `tabToDo`
 				ADD INDEX IF NOT EXISTS `reference_type_reference_name_index`(reference_type, reference_name)
-2026-11-06 09:55:07,152 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,584 WARNING database DDL Query made to DB:
 create table `tabCalendar View` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1877,7 +2147,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,262 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,704 WARNING database DDL Query made to DB:
 create table `tabNotification Settings` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1903,7 +2173,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,324 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,770 WARNING database DDL Query made to DB:
 create table `tabRoute History` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1923,7 +2193,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,420 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,879 WARNING database DDL Query made to DB:
 create table `tabKanban Board` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1956,7 +2226,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,499 WARNING database DDL Query made to DB:
+2026-11-15 07:18:57,944 WARNING database DDL Query made to DB:
 create table `tabConsole Log` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -1977,7 +2247,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,590 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,035 WARNING database DDL Query made to DB:
 create table `tabCustom Workspace` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2004,7 +2274,7 @@ index modified(modified))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,696 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,146 WARNING database DDL Query made to DB:
 create table `tabGlobal Search DocType` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2022,7 +2292,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,809 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,259 WARNING database DDL Query made to DB:
 create table `tabEvent Notifications` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2043,7 +2313,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,881 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,322 WARNING database DDL Query made to DB:
 create table `tabNotification Type` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2063,7 +2333,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:07,951 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,376 WARNING database DDL Query made to DB:
 create table `tabTag Link` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2085,10 +2355,10 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,006 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,430 WARNING database DDL Query made to DB:
 ALTER TABLE `tabTag Link`
 				ADD INDEX IF NOT EXISTS `document_type_document_name_index`(document_type, document_name)
-2026-11-06 09:55:08,065 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,477 WARNING database DDL Query made to DB:
 create table `tabSidebar Item Group Link` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2106,7 +2376,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,201 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,584 WARNING database DDL Query made to DB:
 create table `tabDesktop Icon` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2139,7 +2409,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,275 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,651 WARNING database DDL Query made to DB:
 create table `tabNotification Type Preference` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2157,7 +2427,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,370 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,756 WARNING database DDL Query made to DB:
 create table `tabNotification Log` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2195,7 +2465,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,474 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,850 WARNING database DDL Query made to DB:
 create table `tabEvent` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2247,7 +2517,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,544 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,905 WARNING database DDL Query made to DB:
 create table `tabTag` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2266,7 +2536,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,618 WARNING database DDL Query made to DB:
+2026-11-15 07:18:58,978 WARNING database DDL Query made to DB:
 create table `tabDock` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2288,10 +2558,10 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,691 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,047 WARNING database DDL Query made to DB:
 alter table `tabDock`
 					add unique `unique_layer_address`(app, user, standard)
-2026-11-06 09:55:08,757 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,099 WARNING database DDL Query made to DB:
 create table `tabList Filter` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2320,7 +2590,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:08,826 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,167 WARNING database DDL Query made to DB:
 create table `tabDesktop Layout` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2340,7 +2610,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,074 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,361 WARNING database DDL Query made to DB:
 create table `tabWebhook` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2371,7 +2641,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,265 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,512 WARNING database DDL Query made to DB:
 create table `tabWebhook Data` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2390,7 +2660,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,484 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,600 WARNING database DDL Query made to DB:
 create table `tabGoogle Calendar` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2418,7 +2688,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,580 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,654 WARNING database DDL Query made to DB:
 create table `tabQuery Parameters` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2437,7 +2707,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,636 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,697 WARNING database DDL Query made to DB:
 create table `tabOAuth Scope` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2455,7 +2725,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,718 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,752 WARNING database DDL Query made to DB:
 create table `tabIntegration Request` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2486,7 +2756,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,844 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,879 WARNING database DDL Query made to DB:
 create table `tabOAuth Client` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2522,7 +2792,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:09,955 WARNING database DDL Query made to DB:
+2026-11-15 07:18:59,992 WARNING database DDL Query made to DB:
 create table `tabSlack Webhook URL` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2543,7 +2813,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,017 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,047 WARNING database DDL Query made to DB:
 create table `tabOAuth Client Role` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2561,7 +2831,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,100 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,124 WARNING database DDL Query made to DB:
 create table `tabGoogle Contacts` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2587,7 +2857,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,516 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,544 WARNING database DDL Query made to DB:
 create table `tabOAuth Bearer Token` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2615,7 +2885,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,587 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,630 WARNING database DDL Query made to DB:
 create table `tabConnected App` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2643,7 +2913,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,806 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,750 WARNING database DDL Query made to DB:
 create table `tabWebhook Request Log` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2671,7 +2941,7 @@ index creation(creation))
 			ROW_FORMAT=COMPRESSED
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,856 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,809 WARNING database DDL Query made to DB:
 create table `tabLDAP Group Mapping` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2690,7 +2960,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:10,987 WARNING database DDL Query made to DB:
+2026-11-15 07:19:00,948 WARNING database DDL Query made to DB:
 create table `tabWebhook Header` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2709,7 +2979,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,058 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,037 WARNING database DDL Query made to DB:
 create table `tabSocial Login Key` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2744,7 +3014,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,142 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,136 WARNING database DDL Query made to DB:
 create table `tabOAuth Authorization Code` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2772,7 +3042,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,221 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,231 WARNING database DDL Query made to DB:
 create table `tabToken Cache` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2799,7 +3069,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,398 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,405 WARNING database DDL Query made to DB:
 create table `tabPrint Format Snippet` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2822,7 +3092,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,556 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,579 WARNING database DDL Query made to DB:
 create table `tabNetwork Printer Settings` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2843,7 +3113,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,636 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,645 WARNING database DDL Query made to DB:
 create table `tabPrint Format Field Template` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2867,7 +3137,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,722 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,717 WARNING database DDL Query made to DB:
 create table `tabLetter Head` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2904,7 +3174,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:11,827 WARNING database DDL Query made to DB:
+2026-11-15 07:19:01,768 WARNING database DDL Query made to DB:
 create table `tabPrint Heading` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2924,7 +3194,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,154 WARNING database DDL Query made to DB:
+2026-11-15 07:19:02,146 WARNING database DDL Query made to DB:
 create table `tabContact Email` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2944,7 +3214,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,350 WARNING database DDL Query made to DB:
+2026-11-15 07:19:02,361 WARNING database DDL Query made to DB:
 create table `tabAddress Template` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -2965,7 +3235,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,467 WARNING database DDL Query made to DB:
+2026-11-15 07:19:02,504 WARNING database DDL Query made to DB:
 create table `tabContact` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -3006,7 +3276,7 @@ index creation(creation))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,582 WARNING database DDL Query made to DB:
+2026-11-15 07:19:02,622 WARNING database DDL Query made to DB:
 create table `tabContact Phone` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -3026,7 +3296,7 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,649 WARNING database DDL Query made to DB:
+2026-11-15 07:19:02,673 WARNING database DDL Query made to DB:
 create table `tabGender` (
 			name varchar(140) primary key,
 			creation datetime(6),
@@ -3036,276 +3306,6 @@ create table `tabGender` (
 			docstatus tinyint not null default '0',
 			idx int not null default '0',
 			`gender` varchar(140) UNIQUE,
-`_user_tags` text,
-`_comments` text,
-`_assign` text,
-`_liked_by` text,
-index creation(creation))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,734 WARNING database DDL Query made to DB:
-create table `tabAddress` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`address_title` varchar(140),
-`address_type` varchar(140),
-`address_line1` varchar(240),
-`address_line2` varchar(240),
-`city` varchar(140),
-`county` varchar(140),
-`state` varchar(140),
-`country` varchar(140),
-`pincode` varchar(140),
-`email_id` varchar(140),
-`phone` varchar(140),
-`fax` varchar(140),
-`is_primary_address` tinyint(4) NOT NULL DEFAULT 0,
-`is_shipping_address` tinyint(4) NOT NULL DEFAULT 0,
-`disabled` tinyint(4) NOT NULL DEFAULT 0,
-`_user_tags` text,
-`_comments` text,
-`_assign` text,
-`_liked_by` text,
-index `city`(`city`),
-index `country`(`country`),
-index `pincode`(`pincode`),
-index creation(creation))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,813 WARNING database DDL Query made to DB:
-create table `tabSalutation` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`salutation` varchar(140) UNIQUE,
-`_user_tags` text,
-`_comments` text,
-`_assign` text,
-`_liked_by` text,
-index creation(creation))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:12,940 WARNING database DDL Query made to DB:
-create table `tabAssignment Rule User` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`user` varchar(140),
-`weight` int(11) NOT NULL DEFAULT 1,
-parent varchar(140),
-parentfield varchar(140),
-parenttype varchar(140),
-index parent(parent))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,132 WARNING database DDL Query made to DB:
-create table `tabAutomation Action` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`step_key` varchar(140),
-`step_type` varchar(140) DEFAULT 'Action',
-`action_type` varchar(140),
-`target` varchar(140) DEFAULT 'trigger',
-`output_alias` varchar(140),
-`params` json,
-`step_condition` longtext,
-`related_condition` json,
-`parent_step` int(11) NOT NULL DEFAULT 0,
-`branch` varchar(140),
-parent varchar(140),
-parentfield varchar(140),
-parenttype varchar(140),
-index parent(parent))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,244 WARNING database DDL Query made to DB:
-create table `tabAssignment Rule` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`document_type` varchar(140),
-`due_date_based_on` varchar(140),
-`priority` int(11) NOT NULL DEFAULT 0,
-`disabled` tinyint(4) NOT NULL DEFAULT 0,
-`description` text DEFAULT 'Automatic Assignment',
-`assign_condition` longtext,
-`unassign_condition` longtext,
-`close_condition` longtext,
-`rule` varchar(140),
-`field` varchar(140),
-`last_user` varchar(140),
-`current_index` int(11) NOT NULL DEFAULT 0,
-`_user_tags` text,
-`_comments` text,
-`_assign` text,
-`_liked_by` text,
-index creation(creation))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,324 WARNING database DDL Query made to DB:
-create table `tabAssignment Rule Day` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`day` varchar(140),
-parent varchar(140),
-parentfield varchar(140),
-parenttype varchar(140),
-index parent(parent))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,398 WARNING database DDL Query made to DB:
-create table `tabAutomation Run Step` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`step_idx` int(11) NOT NULL DEFAULT 0,
-`step_key` varchar(140),
-`action_type` varchar(140),
-`status` varchar(140),
-`duration_ms` int(11) NOT NULL DEFAULT 0,
-`detail` longtext,
-`message` text,
-`exception` varchar(140),
-`traceback` longtext,
-`condition` longtext,
-`condition_values` json,
-`output` json,
-parent varchar(140),
-parentfield varchar(140),
-parenttype varchar(140),
-index parent(parent))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,457 WARNING database DDL Query made to DB:
-create table `tabAuto Repeat Day` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`day` varchar(140),
-parent varchar(140),
-parentfield varchar(140),
-parenttype varchar(140),
-index parent(parent))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,584 WARNING database DDL Query made to DB:
-create table `tabReminder` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`user` varchar(140),
-`remind_at` datetime(6),
-`description` text,
-`reminder_doctype` varchar(140),
-`reminder_docname` varchar(140),
-`notified` tinyint(4) NOT NULL DEFAULT 0,
-`_user_tags` text,
-`_comments` text,
-`_assign` text,
-`_liked_by` text,
-index `user`(`user`),
-index `remind_at`(`remind_at`),
-index creation(creation))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,649 WARNING database DDL Query made to DB:
-create table `tabMilestone` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`reference_type` varchar(140),
-`reference_name` varchar(140),
-`track_field` varchar(140),
-`value` varchar(140),
-`milestone_tracker` varchar(140),
-`_user_tags` text,
-`_comments` text,
-`_assign` text,
-`_liked_by` text,
-index `reference_type`(`reference_type`),
-index creation(creation))
-			ENGINE=InnoDB
-			ROW_FORMAT=DYNAMIC
-			CHARACTER SET=utf8mb4
-			COLLATE=utf8mb4_unicode_ci
-2026-11-06 09:55:13,705 WARNING database DDL Query made to DB:
-ALTER TABLE `tabMilestone`
-				ADD INDEX IF NOT EXISTS `reference_type_reference_name_index`(reference_type, reference_name)
-2026-11-06 09:55:13,768 WARNING database DDL Query made to DB:
-create table `tabMilestone Tracker` (
-			name varchar(140) primary key,
-			creation datetime(6),
-			modified datetime(6),
-			modified_by varchar(140),
-			owner varchar(140),
-			docstatus tinyint not null default '0',
-			idx int not null default '0',
-			`document_type` varchar(140) UNIQUE,
-`track_field` varchar(140),
-`disabled` tinyint(4) NOT NULL DEFAULT 0,
 `_user_tags` text,
 `_comments` text,
 `_assign` text,

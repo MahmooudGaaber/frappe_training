@@ -7,5 +7,6 @@
  "installed_apps": [
   "frappe",
   "erpnext"
- ]
+ ],
+ "maintenance_mode": 1
 }

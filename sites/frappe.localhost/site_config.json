@@ -7,5 +7,6 @@
  "installed_apps": [
   "frappe",
   "library_app"
- ]
+ ],
+ "maintenance_mode": 1
 }

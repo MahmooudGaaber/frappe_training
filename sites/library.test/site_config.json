@@ -7,5 +7,6 @@
   "frappe",
   "library_management",
   "erpnext"
- ]
+ ],
+ "maintenance_mode": 1
 }

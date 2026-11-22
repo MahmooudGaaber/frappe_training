@@ -37,5 +37,15 @@
         "required": [],
         "idx": 4,
         "version": "0.0.1"
+    },
+    "maintenance": {
+        "is_repo": true,
+        "resolution": {
+            "commit_hash": "66d12923df5e4d187e95f269665f626f6c8f98f2",
+            "branch": "Maintenance"
+        },
+        "required": [],
+        "idx": 5,
+        "version": "0.0.1"
     }
 }

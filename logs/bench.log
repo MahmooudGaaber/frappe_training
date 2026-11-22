@@ -253,3 +253,16 @@
 2026-11-20 00:00:01,767 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
 2026-11-21 00:05:14,045 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
 2026-11-22 00:00:01,876 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-22 10:05:22,282 INFO /Users/mahmoudgaber/.local/bin/bench new-app maintenance
+2026-11-22 10:05:22,291 LOG creating new app maintenance
+2026-11-22 10:07:51,365 LOG Installing maintenance
+2026-11-22 10:07:51,373 DEBUG cd /Users/mahmoudgaber/frappe/frappe-bench && uv pip install --quiet -e /Users/mahmoudgaber/frappe/frappe-bench/apps/maintenance  --python /Users/mahmoudgaber/frappe/frappe-bench/env/bin/python
+2026-11-22 10:07:53,731 DEBUG bench build --app maintenance
+2026-11-22 10:07:54,027 INFO /Users/mahmoudgaber/.local/bin/bench build --app maintenance
+2026-11-22 10:09:35,176 INFO /Users/mahmoudgaber/.local/bin/bench --site all list-apps
+2026-11-22 10:12:44,466 INFO /Users/mahmoudgaber/.local/bin/bench --site erp.localhost set-maintenance-mode on
+2026-11-22 10:12:45,207 INFO /Users/mahmoudgaber/.local/bin/bench --site frappe.localhost set-maintenance-mode on
+2026-11-22 10:12:45,741 INFO /Users/mahmoudgaber/.local/bin/bench --site library.test set-maintenance-mode on
+2026-11-22 10:12:46,287 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project.localhost set-maintenance-mode on
+2026-11-22 10:12:54,294 INFO /Users/mahmoudgaber/.local/bin/bench --site all list-apps
+2026-11-22 10:14:26,579 INFO /Users/mahmoudgaber/.local/bin/bench new-site maintenance.localhost

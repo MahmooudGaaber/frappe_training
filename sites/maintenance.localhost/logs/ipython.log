@@ -1,0 +1,39 @@
+2026-11-23 11:16:04,889 INFO ipython === bench console session ===
+2026-11-23 11:16:04,889 INFO ipython import frappe
+2026-11-23 11:16:04,890 INFO ipython wf=frappe.get_doc("Workflow","Maintenance workflow")
+2026-11-23 11:16:04,890 INFO ipython print("active",wf.is_active,"doctype",wf.document_type,"field",wf.workflow_state_field)
+2026-11-23 11:16:04,890 INFO ipython for s in wf.states: print("STATE",s.state,"|",s.allow_edit)
+2026-11-23 11:16:04,890 INFO ipython for t in wf.transitions: print("TRANS",t.state,"--",t.action,"->",t.next_state,"|",t.allowed)
+2026-11-23 11:16:04,890 INFO ipython === session end ===
+2026-11-23 11:37:25,884 INFO ipython === bench console session ===
+2026-11-23 11:37:25,884 INFO ipython import frappe
+2026-11-23 11:37:25,884 INFO ipython wf=frappe.get_doc("Workflow","Maintenance workflow")
+2026-11-23 11:37:25,884 INFO ipython print("active",wf.is_active,"doctype",wf.document_type,"field",wf.workflow_state_field)
+2026-11-23 11:37:25,885 INFO ipython for s in wf.states: print("STATE",s.state,"|",s.allow_edit)
+2026-11-23 11:37:25,885 INFO ipython for t in wf.transitions: print("TRANS",t.state,"--",t.action,"->",t.next_state,"|",t.allowed)
+2026-11-23 11:37:25,885 INFO ipython === session end ===
+2026-11-24 11:16:37,074 INFO ipython === bench console session ===
+2026-11-24 11:16:37,075 INFO ipython import frappe
+2026-11-24 11:16:37,075 INFO ipython doc = frappe.get_doc({"doctype": "Maintenance Request", "title": "t", "parts": [
+    {"part_name": "a", "qty": 2, "rate": 50},
+    {"part_name": "b", "qty": 1, "rate": 30},
+    {"part_name": "c"},
+]})
+2026-11-24 11:16:37,075 INFO ipython doc.calculate_totals()
+2026-11-24 11:16:37,075 INFO ipython print("AMOUNTS", [p.amount for p in doc.parts], "TOTAL", doc.total_cost)
+2026-11-24 11:16:37,075 INFO ipython === session end ===
+2026-11-24 11:20:09,878 INFO ipython === bench console session ===
+2026-11-24 11:20:09,882 INFO ipython import frappe
+2026-11-24 11:20:09,882 INFO ipython from frappe.utils import now_datetime, time_diff_in_hours
+2026-11-24 11:20:09,882 INFO ipython === session end ===
+2026-11-24 11:20:15,303 INFO ipython === bench console session ===
+2026-11-24 11:20:15,303 INFO ipython import frappe
+2026-11-24 11:20:15,303 INFO ipython from frappe.utils import now_datetime, time_diff_in_hours
+2026-11-24 11:20:15,303 INFO ipython === session end ===
+2026-11-24 11:20:23,062 INFO ipython === bench console session ===
+2026-11-24 11:20:23,062 INFO ipython import frappe
+2026-11-24 11:20:23,062 INFO ipython from frappe.utils import now_datetime, time_diff_in_hours
+2026-11-24 11:20:23,062 INFO ipython def mk(p):
+    d = frappe.get_doc({"doctype": "Maintenance Request", "title": "t", "priority": p}); d.set_due_by(); return round(time_diff_in_hours(d.due_by, now_datetime()))
+print("DUE", [(p, mk(p)) for p in ["Urgent", "High", "Medium", "Low", None]])
+2026-11-24 11:20:23,062 INFO ipython === session end ===

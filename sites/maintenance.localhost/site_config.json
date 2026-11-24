@@ -3,7 +3,9 @@
  "db_password": "fSjdKSe7TfovHxEJ",
  "db_type": "mariadb",
  "db_user": "_5025148a64a76277",
+ "encryption_key": "P33QqtgVfpe9n01-p7k2ekoCWBJIq_YPbM9NpPTid_I=",
  "installed_apps": [
-  "frappe"
+  "frappe",
+  "maintenance"
  ]
 }

@@ -1,5 +1,4 @@
 frappe
 erpnext
-test_project
 maintenance
 library_management

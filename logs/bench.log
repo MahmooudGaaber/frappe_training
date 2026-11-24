@@ -266,3 +266,31 @@
 2026-11-22 10:12:46,287 INFO /Users/mahmoudgaber/.local/bin/bench --site test_project.localhost set-maintenance-mode on
 2026-11-22 10:12:54,294 INFO /Users/mahmoudgaber/.local/bin/bench --site all list-apps
 2026-11-22 10:14:26,579 INFO /Users/mahmoudgaber/.local/bin/bench new-site maintenance.localhost
+2026-11-22 10:20:16,390 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost install-app maintenance
+2026-11-22 10:21:41,772 INFO /Users/mahmoudgaber/.local/bin/bench remove-app test_project
+2026-11-22 10:21:41,782 WARNING /Users/mahmoudgaber/.local/bin/bench remove-app test_project executed with exit code 1
+2026-11-22 10:24:13,609 INFO /Users/mahmoudgaber/.local/bin/bench clear-cache
+2026-11-22 10:24:14,225 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost install-app maintenance
+2026-11-22 10:24:56,098 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost list-apps
+2026-11-22 10:25:11,017 INFO /Users/mahmoudgaber/.local/bin/bench start
+2026-11-22 10:25:11,764 INFO /Users/mahmoudgaber/.local/bin/bench socketio
+2026-11-22 10:25:11,768 INFO /Users/mahmoudgaber/.local/bin/bench worker
+2026-11-22 10:25:11,778 INFO /Users/mahmoudgaber/.local/bin/bench serve --port 8000
+2026-11-22 10:25:11,779 INFO /Users/mahmoudgaber/.local/bin/bench schedule
+2026-11-22 10:25:11,779 INFO /Users/mahmoudgaber/.local/bin/bench watch
+2026-11-22 12:01:51,116 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-22 18:00:01,256 INFO /Users/mahmoudgaber/.local/bin/bench --verbose --site all backup
+2026-11-23 09:50:34,660 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost execute frappe.db.get_all --args ["Role"] --kwargs {"filters":{"name":["like","Maintenance%"]},"pluck":"name"}
+2026-11-23 09:50:35,595 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost execute frappe.db.get_all --args ["Workflow"] --kwargs {"pluck":"name"}
+2026-11-23 10:03:09,572 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost execute frappe.get_doc --args ["Workflow","Maintenance workflow"]
+2026-11-23 11:16:03,863 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost console
+2026-11-23 11:37:24,713 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost console
+2026-11-23 16:14:46,815 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost mariadb -e select u.name, u.enabled, group_concat(h.role) roles from tabUser u left join `tabHas Role` h on h.parent=u.name and h.role like 'Maintenance%' where u.name not in ('Guest') group by u.name
+2026-11-23 16:57:25,037 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost mariadb -e select u.name, u.user_type, u.enabled, group_concat(h.role) roles from tabUser u left join `tabHas Role` h on h.parent=u.name and h.role like 'Maintenance%' where u.name like '%example.com' group by u.name; select name, customer_name, user from `tabMaintenance Customer`; select name, full_name, user, is_available from tabTechnician;
+2026-11-23 19:21:26,166 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost mariadb -e select name, customer_name, user from `tabMaintenance Customer`; select name, full_name, user, is_available from tabTechnician;
+2026-11-23 20:12:59,011 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost mariadb -e select name, full_name, user, specialty, is_available from tabTechnician; select name, customer_name, user from `tabMaintenance Customer`;
+2026-11-24 10:41:31,855 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost mariadb -e select count(*) requests from `tabMaintenance Request`
+2026-11-24 11:16:35,930 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost console
+2026-11-24 11:20:08,922 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost console
+2026-11-24 11:20:14,625 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost console
+2026-11-24 11:20:22,201 INFO /Users/mahmoudgaber/.local/bin/bench --site maintenance.localhost console

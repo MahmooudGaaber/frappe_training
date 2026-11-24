@@ -217,3 +217,144 @@ index parent(parent))
 			ROW_FORMAT=DYNAMIC
 			CHARACTER SET=utf8mb4
 			COLLATE=utf8mb4_unicode_ci
+2026-11-22 10:46:24,399 WARNING database DDL Query made to DB:
+create table `tabMaintenance Customer` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-22 10:51:06,528 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Customer` ADD COLUMN `customer_name` varchar(140), ADD COLUMN `mobile` varchar(140) UNIQUE
+2026-11-22 10:51:06,532 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Customer` ADD UNIQUE INDEX IF NOT EXISTS mobile (`mobile`)
+2026-11-22 11:23:54,965 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Customer` ADD COLUMN `address` varchar(140)
+2026-11-22 11:29:12,665 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Customer` ADD COLUMN `user` varchar(140)
+2026-11-22 12:43:43,566 WARNING database DDL Query made to DB:
+create table `tabTechnician` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-22 12:44:19,477 WARNING database DDL Query made to DB:
+ALTER TABLE `tabTechnician` ADD COLUMN `user` varchar(140) UNIQUE
+2026-11-22 12:44:19,479 WARNING database DDL Query made to DB:
+ALTER TABLE `tabTechnician` ADD UNIQUE INDEX IF NOT EXISTS user (`user`)
+2026-11-22 12:46:15,992 WARNING database DDL Query made to DB:
+ALTER TABLE `tabTechnician` ADD COLUMN `full_name` varchar(140), ADD COLUMN `specialty` varchar(140)
+2026-11-22 12:52:32,571 WARNING database DDL Query made to DB:
+ALTER TABLE `tabTechnician` ADD COLUMN `is_available` tinyint(4) NOT NULL DEFAULT 0
+2026-11-22 12:53:05,913 WARNING database DDL Query made to DB:
+create table `tabMaintenance Request` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-22 13:19:39,125 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` ADD COLUMN `customer` varchar(140), ADD COLUMN `title` varchar(140), ADD COLUMN `description` varchar(140), ADD COLUMN `priority` varchar(140)
+2026-11-22 13:53:37,879 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` ADD COLUMN `status` varchar(140), ADD COLUMN `technician` varchar(140), ADD COLUMN `due_by` datetime(6), ADD COLUMN `bfore_photo` varchar(140), ADD COLUMN `after_photo` varchar(140)
+2026-11-22 13:57:11,929 WARNING database DDL Query made to DB:
+create table `tabRequest Parts` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			parent varchar(140),
+parentfield varchar(140),
+parenttype varchar(140),
+index parent(parent))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-22 14:08:17,905 WARNING database DDL Query made to DB:
+alter table `tabRequest Parts` add column if not exists parent varchar(140)
+2026-11-22 14:08:17,906 WARNING database DDL Query made to DB:
+alter table `tabRequest Parts` add column if not exists parenttype varchar(140)
+2026-11-22 14:08:17,907 WARNING database DDL Query made to DB:
+alter table `tabRequest Parts` add column if not exists parentfield varchar(140)
+2026-11-22 14:08:18,003 WARNING database DDL Query made to DB:
+ALTER TABLE `tabRequest Parts` ADD COLUMN `part_name` varchar(140), ADD COLUMN `qty` int(11) NOT NULL DEFAULT 0, ADD COLUMN `rate` decimal(21,9) NOT NULL DEFAULT 0.0, ADD COLUMN `amount` decimal(21,9) NOT NULL DEFAULT 0.0
+2026-11-22 14:22:16,243 WARNING database DDL Query made to DB:
+create table `tabRequest Status Log` (
+			name varchar(140) primary key,
+			creation datetime(6),
+			modified datetime(6),
+			modified_by varchar(140),
+			owner varchar(140),
+			docstatus tinyint not null default '0',
+			idx int not null default '0',
+			`_user_tags` text,
+`_comments` text,
+`_assign` text,
+`_liked_by` text,
+index creation(creation))
+			ENGINE=InnoDB
+			ROW_FORMAT=DYNAMIC
+			CHARACTER SET=utf8mb4
+			COLLATE=utf8mb4_unicode_ci
+2026-11-22 14:25:31,272 WARNING database DDL Query made to DB:
+ALTER TABLE `tabRequest Status Log` ADD COLUMN `request` varchar(140), ADD COLUMN `from_status` varchar(140), ADD COLUMN `to_status` varchar(140), ADD COLUMN `changed_by` varchar(140), ADD COLUMN `changd_on` varchar(140), ADD COLUMN `note` text
+2026-11-22 17:54:10,641 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` ADD COLUMN `workflow_state` varchar(140)
+2026-11-22 18:18:00,272 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` MODIFY `bfore_photo` text
+2026-11-22 18:18:37,780 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` MODIFY `after_photo` text
+2026-11-22 18:19:20,403 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` MODIFY `description` text
+2026-11-22 18:19:44,522 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` MODIFY `status` varchar(140) DEFAULT 'Open'
+2026-11-23 09:52:48,478 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` ADD COLUMN `total_cost` decimal(21,9) NOT NULL DEFAULT 0.0
+2026-11-23 09:53:36,654 WARNING database DDL Query made to DB:
+ALTER TABLE `tabRequest Status Log` MODIFY `changed_by` datetime(6)
+2026-11-23 09:54:19,056 WARNING database DDL Query made to DB:
+ALTER TABLE `tabRequest Status Log` MODIFY `changd_on` datetime(6)
+2026-11-23 11:31:46,202 WARNING database DDL Query made to DB:
+ALTER TABLE `tabMaintenance Request` ADD COLUMN `before_photo` text
+2026-11-23 11:32:15,224 WARNING database DDL Query made to DB:
+ALTER TABLE `tabRequest Status Log` ADD COLUMN `changed_on` datetime(6)
+2026-11-23 11:32:51,323 WARNING database DDL Query made to DB:
+ALTER TABLE `tabRequest Status Log` MODIFY `changed_by` varchar(140)
